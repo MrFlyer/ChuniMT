@@ -13,14 +13,14 @@ void loop() {
     if (ADCread >= 850) {
       adcData[i] = 1;
       Serial.print(adcData[i]);
-    }
+    }S
     else {
       adcData[i] = 0;
       Serial.print(adcData[i]);
     }
     if (i < 5) {
-      serial.print(" ");
+      Serial.print(" ");
     }
   }
-  serial.println();
+  Serial.println();
 }
