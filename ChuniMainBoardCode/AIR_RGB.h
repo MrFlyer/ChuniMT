@@ -62,7 +62,7 @@ void airset() {
 }
 
 void serial_cheak() {
-  if (Serial.available()) {
+  if (Serial1.available()) {
      uint16_t = serial.readStringUntil('\n');
     dataString.trim(); // 去除首尾空格
     // 将字符串解析为整数数组
@@ -75,10 +75,10 @@ void serial_cheak() {
     // 在这里使用接收到的数据进行相应的处理
     // 例如：检查哪个0变为了1，并执行相应的操作
     for (int i = 0; i < 6; i++) {
-      Serial.print(data[i]);
-      Serial.print(" ");
+      Serial1.print(data[i]);
+      Serial1.print(" ");
     }
-    Serial.println();
+    Serial1.println();
   }
 }
 
