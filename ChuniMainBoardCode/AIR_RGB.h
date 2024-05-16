@@ -63,19 +63,9 @@ void airset() {
 
 void serial_cheak() {
   if (Serial1.available()) {
-     uint16_t = serial.readStringUntil('\n');
-    dataString.trim(); // 去除首尾空格
-    // 将字符串解析为整数数组
-    int index = 0;
-    char *ptr = strtok(const_cast<char*>(dataString.c_str()), " ");
-    while (ptr != NULL) {
-      data[index++] = atoi(ptr);
-      ptr = strtok(NULL, " ");
-    }
-    // 在这里使用接收到的数据进行相应的处理
-    // 例如：检查哪个0变为了1，并执行相应的操作
+    String dataString = serial.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
-      Serial1.print(data[i]);
+      Serial1.print(dataString[i]);
       Serial1.print(" ");
     }
     Serial1.println();

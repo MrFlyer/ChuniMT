@@ -10,24 +10,23 @@ void setup()
 
 void loop()
 {
+  String data = "";
   int adcData[6] = {0, 0, 0, 0, 0, 0};
   for (int i = 0; i < 6; i++)
   {
     int ADCread = analogRead(ADCNUM[i]);
     if (ADCread >= 850)
     {
-      adcData[i] = 1;
-      Serial.print(adcData[i]);
+      // adcData[i] = 1;
+      // Serial.print(adcData[i]);
+      data += "1";
     }
     else
     {
-      adcData[i] = 0;
-      Serial.print(adcData[i]);
-    }
-    if (i < 5)
-    {
-      Serial.print(" ");
+      // adcData[i] = 0;
+      // Serial.print(adcData[i]);
+      data += "0";
     }
   }
-  Serial.println();
+  Serial.println(data);
 }
