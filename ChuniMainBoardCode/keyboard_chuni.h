@@ -33,6 +33,8 @@ struct {
 #define CLAMP(val, lo, hi) (val < lo ? lo : (val > hi ? hi : val))
 uint8_t checkrelease[16];
 uint8_t checkled = 0;
+#define SEND_PIN 7
+
 
 bool auto_scan = false;
 void slider_set_led();
@@ -52,6 +54,7 @@ void CON_SET() {
   capB.begin(0x5B);
   capC.begin(0x5C);
   NKROKeyboard.begin();
+  pinMode(SEND_PIN, OUTPUT);
 }
 void maindev_loop() {
   switch (sliderserial_readreq()) {

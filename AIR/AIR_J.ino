@@ -10,23 +10,28 @@ void setup()
 
 void loop()
 {
-  String data = "";
-  int adcData[6] = {0, 0, 0, 0, 0, 0};
-  for (int i = 0; i < 6; i++)
+  if (Serial.available())
   {
-    int ADCread = analogRead(ADCNUM[i]);
-    if (ADCread >= 850)
+    if (Serial.read() == "1")
     {
-      // adcData[i] = 1;
-      // Serial.print(adcData[i]);
-      data += "1";
-    }
-    else
-    {
-      // adcData[i] = 0;
-      // Serial.print(adcData[i]);
-      data += "0";
+      String data = "";
+      for (int i = 0; i < 6; i++)
+      {
+        int ADCread = analogRead(ADCNUM[i]);
+        if (ADCread >= 850)
+        {
+          // adcData[i] = 1;
+          // Serial.print(adcData[i]);
+          data += "1";
+        }
+        else
+        {
+          // adcData[i] = 0;
+          // Serial.print(adcData[i]);
+          data += "0";
+        }
+      }
+      Serial.println(data);
     }
   }
-  Serial.println(data);
 }

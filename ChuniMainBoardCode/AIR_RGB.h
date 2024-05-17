@@ -4,6 +4,7 @@
 #include "HID-Project.h"
 #define NUM_LEDS 33
 #define DATA_PIN A5
+#define SEND_PIN 7
 CRGB leds[NUM_LEDS];
 
 #define air_right_pin 5
@@ -62,11 +63,16 @@ void airset() {
 }
 
 void serial_cheak() {
-  if (Serial1.available()) {
-    String dataString = serial.readStringUntil('\n');
+  digitalWrite(SEND_PIN, HIGH);
+  Serial1.print("1")
+  digitalWrite(SEND_PIN, LOW);
+  if (Serial1.available()) 
+  {
+    String dataString = Serial1.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
-      Serial1.print(dataString[i]);
-      Serial1.print(" ");
+      data[i] = dataString[i] - '0';
+      SerialUSB.print(data[i]);
+      SerialUSB.print(" ");
     }
     Serial1.println();
   }
