@@ -64,7 +64,7 @@ void airset() {
 
 void serial_cheak() {
   digitalWrite(SEND_PIN, HIGH);
-  Serial1.print("1")
+  Serial1.print("1");
   digitalWrite(SEND_PIN, LOW);
   if (Serial1.available()) 
   {
