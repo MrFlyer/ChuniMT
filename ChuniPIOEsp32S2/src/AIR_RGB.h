@@ -1,7 +1,7 @@
 #ifndef AIR_RGB_H
 #define AIR_RGB_H
 #include <FastLED.h>
-#include "HID-Project.h"
+// #include "HID-Project.h"
 #define NUM_LEDS 33
 #define DATA_PIN A5
 #define SEND_PIN 7
@@ -66,7 +66,7 @@ void serial_cheak() {
   digitalWrite(SEND_PIN, HIGH);
   Serial1.print("1");
   digitalWrite(SEND_PIN, LOW);
-  if (Serial1.available()) 
+  if (Serial1.available())
   {
     String dataString = Serial1.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
@@ -85,7 +85,7 @@ void aircheck() {
     airstate = data[i];
     if (airstate == 0) {
       if (!airPress[i]) {
-        NKROKeyboard.press(airkey[i]);
+        // NKROKeyboard.press(airkey[i]);
         airRelease[i] = 0;
         airPress[i] = 1;
         air_state[i] = 1;
@@ -93,7 +93,7 @@ void aircheck() {
     }
     else {
       if (!airRelease[i]) {
-        NKROKeyboard.release(airkey[i]);
+        // NKROKeyboard.release(airkey[i]);
         airRelease[i] = 1;
         airPress[i] = 0;
         air_state[i] = 0;

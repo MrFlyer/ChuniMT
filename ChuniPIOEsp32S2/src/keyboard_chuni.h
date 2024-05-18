@@ -6,8 +6,12 @@
 #ifndef KEY_CHUNI_H
 #define KEY_CHUNI_H
 #include "serial.h"
-#include "HID-Project.h"
+// #include "HID-Project.h"
+
+#include "USB.h"
+#include "USBHIDKeyboard.h"
 #include "Adafruit_MPR121.h"
+USBHIDKeyboard Keyboard;
 Adafruit_MPR121 capA = Adafruit_MPR121();
 Adafruit_MPR121 capB = Adafruit_MPR121();
 Adafruit_MPR121 capC = Adafruit_MPR121();
@@ -53,7 +57,9 @@ void CON_SET() {
   capA.begin(0x5A);
   capB.begin(0x5B);
   capC.begin(0x5C);
-  NKROKeyboard.begin();
+  Keyboard.begin();
+  USB.begin();
+  // NKROKeyboard.begin();
   pinMode(SEND_PIN, OUTPUT);
 }
 void maindev_loop() {
@@ -225,13 +231,13 @@ void keyboardmod() {
     }
     if (calkeypress1 >= val || calkeypress2 >= val) {
       checkrelease[i] = SLIDER_CMD_AUTO_SCAN;
-      NKROKeyboard.press(keypress[i]);
+      // NKROKeyboard.press(keypress[i]);
       leds[i * 2] = CRGB(keyboardPressRGB.g, keyboardPressRGB.r, keyboardPressRGB.b);
     }
     else {
       if (checkrelease[i]) {
         checkrelease[i] = 0;
-        NKROKeyboard.release(keypress[i]);
+        // NKROKeyboard.release(keypress[i]);
         leds[i * 2] = CRGB(keyboardReleaseRGB.g, keyboardReleaseRGB.r, keyboardReleaseRGB.b);
       }
       continue;
