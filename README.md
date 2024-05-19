@@ -1,7 +1,11 @@
 # 目录结构
+## TestEsp32S2_USB_CDC
 
-## AIR
-- AIR_F.ino为发射端代码
-- AIR_J.ino为接收端代码
-## ChuniWithESP32S2
-- ChuniWithESP32S2.ino为主程序入口，大概率优先移植
+### 用来测试CDC的可行性
+#### 目前进度
+ 1. 已经可以实现正常编译通过，但是还没正式上开发板进行调试测试
+ 2. 使用了的库（单针对于ESP32TinyUSB来说）
+    - chegewara/ESP32TinyUSB@^2.0.2
+	- SPI
+	- FS
+	- SD
