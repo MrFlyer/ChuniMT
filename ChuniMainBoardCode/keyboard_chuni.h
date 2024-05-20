@@ -49,7 +49,7 @@ int caltouch(int bl, int fd);
 void CON_SET() {
   SerialUSB.begin(115200);
   SerialUSB.setTimeout(0);
-  Serial1.begin(9600);
+  Serial.begin(9600);
   capA.begin(0x5A);
   capB.begin(0x5B);
   capC.begin(0x5C);

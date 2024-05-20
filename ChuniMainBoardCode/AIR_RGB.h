@@ -64,17 +64,17 @@ void airset() {
 
 void serial_cheak() {
   digitalWrite(SEND_PIN, HIGH);
-  Serial1.print("1");
+  Serial.print("1");
   digitalWrite(SEND_PIN, LOW);
-  if (Serial1.available()) 
+  if (Serial.available()) 
   {
-    String dataString = Serial1.readStringUntil('\n');
+    String dataString = Serial.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
       data[i] = dataString[i] - '0';
       SerialUSB.print(data[i]);
       SerialUSB.print(" ");
     }
-    Serial1.println();
+    Serial.println();
   }
 }
 
