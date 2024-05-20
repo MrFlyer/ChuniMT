@@ -71,10 +71,10 @@ void serial_cheak() {
     String dataString = Serial.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
       data[i] = dataString[i] - '0';
-      SerialUSB.print(data[i]);
-      SerialUSB.print(" ");
+      // SerialUSB.print(data[i]);
+      // SerialUSB.print(" ");
     }
-    Serial.println();
+    // Serial.println();
   }
 }
 
