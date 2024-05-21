@@ -13,9 +13,10 @@ void setup()
 
 void loop()
 {
+    Serial.println(anlogRead(DATA_PIN));
     if (analogRead(DATA_PIN) > 512)
     {
-
+        Serial.println("HIGH");
         for (int i = 0; i < 6; i++)
         {
             digitalWrite(pinNUM[i], HIGH);
