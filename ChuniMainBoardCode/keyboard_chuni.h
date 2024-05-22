@@ -226,13 +226,13 @@ void keyboardmod() {
     if (calkeypress1 >= val || calkeypress2 >= val) {
       checkrelease[i] = SLIDER_CMD_AUTO_SCAN;
       NKROKeyboard.press(keypress[i]);
-      leds[i * 2] = CRGB(keyboardPressRGB.g, keyboardPressRGB.r, keyboardPressRGB.b);
+      leds[i] = CRGB(keyboardPressRGB.g, keyboardPressRGB.r, keyboardPressRGB.b);
     }
     else {
       if (checkrelease[i]) {
         checkrelease[i] = 0;
         NKROKeyboard.release(keypress[i]);
-        leds[i * 2] = CRGB(keyboardReleaseRGB.g, keyboardReleaseRGB.r, keyboardReleaseRGB.b);
+        leds[i] = CRGB(keyboardReleaseRGB.g, keyboardReleaseRGB.r, keyboardReleaseRGB.b);
       }
       continue;
     }
