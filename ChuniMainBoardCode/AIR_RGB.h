@@ -65,8 +65,8 @@ void airset() {
 void serial_cheak() {
   digitalWrite(SEND_PIN, HIGH);
   Serial.print("1");
-  digitalWrite(SEND_PIN, LOW);
-  if (Serial.available()) 
+
+  if (Serial.available())
   {
     String dataString = Serial.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
@@ -76,6 +76,7 @@ void serial_cheak() {
     }
     // Serial.println();
   }
+  digitalWrite(SEND_PIN, LOW);
 }
 
 

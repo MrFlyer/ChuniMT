@@ -14,13 +14,19 @@ void setup()
 void loop()
 {
     Serial.println(analogRead(DATA_PIN));
-    if (analogRead(DATA_PIN) < 300)
+    if (analogRead(DATA_PIN) > 500)
     {
         Serial.println("HIGH");
         for (int i = 0; i < 6; i++)
         {
             digitalWrite(pinNUM[i], HIGH);
-            delayMicroseconds(50);
+        }
+    }
+    if (analogRead(DATA_PIN) < 200)
+    {
+        Serial.println("LOW");
+        for (int i = 0; i < 6; i++)
+        {
             digitalWrite(pinNUM[i], LOW);
         }
     }
