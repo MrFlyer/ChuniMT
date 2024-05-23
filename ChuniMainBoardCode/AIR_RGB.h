@@ -19,7 +19,7 @@ uint8_t air_state[6];
 
 uint16_t airkey[6] = {'/', '.', '\'', ';', ']', '['};
 // uint16_t airpin[6] = {7, 6, 12, 10, 13, 11};
-int data[6];
+int serialData[6];
 uint8_t airRelease[6];
 uint8_t airPress[6];
 long air_time = 0;
@@ -70,9 +70,15 @@ void serial_cheak() {
   {
     String dataString = Serial.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
+<<<<<<< HEAD
       data[i] = dataString[i] - '0';
       SerialUSB.print(data[i]);
       SerialUSB.print(" ");
+=======
+      serialData[i] = dataString[i] - '0';
+      // SerialUSB.print(data[i]);
+      // SerialUSB.print(" ");
+>>>>>>> 9bed00d31546504946125387b1087eda1d48839b
     }
     Serial.println();
   }
@@ -83,7 +89,7 @@ void serial_cheak() {
 void aircheck() {
   for (uint8_t i = 0; i < 6; i++) {
     uint8_t airstate;
-    airstate = data[i];
+    airstate = serialData[i];
     if (airstate == 0) {
       if (!airPress[i]) {
         NKROKeyboard.press(airkey[i]);
