@@ -70,26 +70,22 @@ void serial_cheak() {
   {
     String dataString = Serial.readStringUntil('\n');
     for (int i = 0; i < 6; i++) {
-<<<<<<< HEAD
       data[i] = dataString[i] - '0';
-      SerialUSB.print(data[i]);
-      SerialUSB.print(" ");
-=======
-      serialData[i] = dataString[i] - '0';
       // SerialUSB.print(data[i]);
       // SerialUSB.print(" ");
->>>>>>> 9bed00d31546504946125387b1087eda1d48839b
     }
-    Serial.println();
+    // Serial.println();
   }
-  digitalWrite(SEND_PIN, LOW);
+    digitalWrite(SEND_PIN, LOW);
+
+  }
 }
 
 
 void aircheck() {
   for (uint8_t i = 0; i < 6; i++) {
     uint8_t airstate;
-    airstate = serialData[i];
+    airstate = data[i];
     if (airstate == 0) {
       if (!airPress[i]) {
         NKROKeyboard.press(airkey[i]);
