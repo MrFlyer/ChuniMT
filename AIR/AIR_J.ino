@@ -26,13 +26,13 @@ void loop()
         {
           // adcData[i] = 1;
           // Serial.print(adcData[i]);
-          data += "1";
+          data += "0";
         }
         else
         {
           // adcData[i] = 0;
           // Serial.print(adcData[i]);
-          data += "0";
+          data += "1";
         }
       }
       Serial.println(data);

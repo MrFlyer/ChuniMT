@@ -216,7 +216,7 @@ void keyboardmod() {
   for (uint8_t i = 0; i < 16; i++) {
     uint8_t calkeypress1 = calpress[i * 2];
     uint8_t calkeypress2 = calpress[i * 2 + 1];
-    uint8_t val = 80 ;
+    uint8_t val = 100 ;
     if (checkled <= 15) {//初始化完成后的灯
       leds[31 - i * 2] = CRGB(initializationRGB.g, initializationRGB.r, initializationRGB.b);
       leds[30 - i * 2] = CRGB(initializationRGB.g, initializationRGB.r, initializationRGB.b);
