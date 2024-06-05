@@ -10,6 +10,10 @@
 - ChuniMainBoardCode.ino为主程序入口，主要修改的文件集中于AIR_RGB.h，keyboard_chuni.h之中
 - 使用ATSAMD21G18A的串口1进行开发，通讯接口为Serial
 
+## MPR121调参
+1. 优先考虑调整在Adafruit_MPR121.h中的`MPR121_TOUCH_THRESHOLD_DEFAULT MPR121_RELEASE_THRESHOLD_DEFAULT`二者，可以在一定程度上抑制误触
+2. 可以调整在Keyboard_chuni.h下的val，但是这个只针对键盘模式下生效
+
 # TODO
 1. 外壳
 2. 优化发射端代码
